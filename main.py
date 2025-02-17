@@ -16,4 +16,13 @@ def fraktaler(A, v0, n):
     
     return result
 
-print(fraktaler(np.array([[1,2],[1,2]]), np.array([1,2]),2))
+def delb():
+    A1 = np.array([[0, 0], [0, 0.16]])
+    A2 = np.array([[0.85, 0.04], [-0.04, 0.85]])
+    A3 = np.array([[0.2, -0.26], [0.23, 0.22]])
+    A4 = np.array([[-0.15, 0.28], [0.26, 0.24]])
+
+    b1 = np.array([0, 0])
+    b2 = np.array([0, 1.6])
+    b3 = np.array([0, 1.6])
+    b4 = np.array([0, 0.44])
