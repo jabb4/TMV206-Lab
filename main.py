@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def UppgiftA(V0, n):
-    A = np.matrix([[0.7, 0.1, 0.2], [0.1, 0.6, 0.3], [0.3, 0.2, 0.5]])
+    A = np.matrix([[0.7, 0.1, 0.3], [0.1, 0.6, 0.2], [0.2, 0.3, 0.5]])
 
     poweredA = np.linalg.matrix_power(A, n)
     
@@ -10,7 +10,7 @@ def UppgiftA(V0, n):
     return result
 
 def UppgiftB():
-    n = range(0,10)
+    n = range(1,10)
     
     C0 = 333
     L0 = 333
@@ -21,7 +21,6 @@ def UppgiftB():
     plt.subplot(3, 3, 2)
     plt.title("1/3 per, v:1-10")
     plt.ylabel("Bilar")
-    print([round(float(UppgiftA(V0, x)[0])) for x in n])
     plt.plot(n, [round(float(UppgiftA(V0, x)[0])) for x in n], label="Centralen")
     plt.plot(n, [round(float(UppgiftA(V0, x)[1])) for x in n], label="Landvetter")
     plt.plot(n, [round(float(UppgiftA(V0, x)[2])) for x in n], label="Uthyrda")
@@ -95,6 +94,8 @@ def UppgiftB():
     U0 = 999
     V0 = np.matrix([[C0], [L0], [U0]])
     print([float(UppgiftA(V0, x)[0]) for x in n])
+    print([float(UppgiftA(V0, x)[1]) for x in n])
+    print([float(UppgiftA(V0, x)[2]) for x in n])
     plt.plot(n, [round(float(UppgiftA(V0, x)[0])) for x in n], label="Centralen")
     plt.plot(n, [round(float(UppgiftA(V0, x)[1])) for x in n], label="Landvetter")
     plt.plot(n, [round(float(UppgiftA(V0, x)[2])) for x in n], label="Uthyrda")
@@ -113,6 +114,7 @@ n = 10
 V0 = np.matrix([[C0], [L0], [U0]])
 
 print(f"V{n} = {UppgiftA(V0, n)} \n")
+
 
 
 #Vid fallet där C0 = L0 = U0 = B, där B tillhör naturliga talen, kommer resulterande matris Vn förbli V0; Vn = V0
