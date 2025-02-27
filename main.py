@@ -106,8 +106,19 @@ def solve_using_inverse(A, y):
     except:
         print("A and y have mismatching dimensions")
         return None
+    
+    nice_string = []
+    max_row_len = len(str(round(max(Result, key=lambda x: len(str(round(x,3)))), 3)))
+    for i, e in enumerate(Result):
+        tmp = ""
+        if i+1 == round((len(Result)-1)/2):
+            tmp += "  x  =  "
+        else:
+            tmp += "        "
+        tmp += f"({str(round(e, 3)):^{max_row_len+1}})"
+        nice_string.append(tmp)
 
-    return Result
+    return Result , nice_string
 
 def uppgiftA():
     A = Matrix([[1,2,1,-1,2], [3,4,5,2,0], [2,2,1,0,2]])
@@ -134,12 +145,14 @@ def uppgiftB(A, y, Aint, yint):
 def uppgiftC(A, y, Aint, yint):
     print("Uppgift C med rand():")
     t=time.time()
-    solve_using_inverse(A, y)
+    for line in solve_using_inverse(A, y)[1]:
+        print(line)
     print("Using Inverse: Time taken on rand():", time.time()-t, "\n\n")
 
     print("Uppgift C med randint():")
     t=time.time()
-    solve_using_inverse(Aint, yint)
+    for line in solve_using_inverse(Aint, yint)[1]:
+        print(line)
     print("Time taken on randint():", time.time()-t)
 
 def main():
